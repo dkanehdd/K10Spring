@@ -2,6 +2,7 @@ package di;
 
 public class AvengersInfo {
 
+	//멤버변수 :  
 	private AvengersVO avengers;
 	
 	public AvengersInfo(AvengersVO avengers) {
@@ -11,11 +12,10 @@ public class AvengersInfo {
 	public AvengersVO getAvengers() {
 		return avengers;
 	}
-
 	public void setAvengers(AvengersVO avengers) {
 		this.avengers = avengers;
 	}
-	
+	//멤버메소드
 	public String AvengersView() {
 		
 		String returnStr = "";

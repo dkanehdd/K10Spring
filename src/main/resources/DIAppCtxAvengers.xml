@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--  
+	인자생성자를 통한 빈 생성
+	1. <constructor-arg> 태그의 하위 <value>를 이용해서
+		멤버변수를 초기화한다.
+	2. 1과 동일하지만 태그가 아닌 속성을 이용해서 초기화한다.
+	-->
+	<bean id="hero1" class="di.AvengersVO">
+		<constructor-arg>
+			<value>스티븐 그랜트 로져스</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>캡틴아메리카</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>비브라늄으로 제작된 방패와 격투기술</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>99세</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="hero2" class="di.AvengersVO">
+		<constructor-arg value="토니스타크"/>
+		<constructor-arg value="아이언맨"/>
+		<constructor-arg value="슈트를 활용한 리펄서건 및 스마트미사일"/>
+		<constructor-arg value="47세"/>
+	</bean>
+	
+	<!-- 위에서 생성한 hero1을 참조하여 info1객체를 생성한다. -->
+	<bean id="AvengersInfo1" class="di.AvengersInfo">
+		<constructor-arg>
+			<ref bean="hero1"/>
+		</constructor-arg>
+	</bean>
+
+</beans>

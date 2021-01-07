@@ -9,6 +9,8 @@
 	<configs>
 		<config>src/main/resources/DIAppCtxCalculator.xml</config>
 		<config>src/main/resources/DIAppCtxBMICal.xml</config>
+		<config>src/main/resources/DIAppCtxAvengers.xml</config>
+		<config>src/main/resources/EnvAppCtx.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

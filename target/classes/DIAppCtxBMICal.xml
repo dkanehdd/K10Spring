@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- BMI지수 빈 설정 : setter를 통해 값설정됨 -->
+	<!-- 멤버변수 초기화를 위해 property하위 value를 사용한다. -->
 	<bean id="bmiCalResult" class="di.BMICalResult">
 		<property name="lowWeight">
 			<value>18.5</value>
@@ -18,18 +19,21 @@
 			<value>30</value>
 		</property>
 	</bean>
-	
+	<!-- BMI결과 출력을 위한 빈 생성 -->
 	<bean id="myInfo" class="di.BMIInfoView">
+		<!-- String, double형 멤버변수 초기화 -->
 		<property name="name" value="홍길동"></property>
-		<property name="height" value="182"></property>
-		<property name="weight" value="77"/>
+		<property name="height" value="180"></property>
+		<property name="weight" value="88"/>
+		<!-- 컬렉션 타입의 멤버변수 초기화-하위속성으로 여러개의 값 입력 가능 -->
 		<property name="hobbys">
 			<list>
-				<value>자전거</value>
+				<value>배드민턴</value>
 				<value>퀵보드</value>
 				<value>레고</value>
 			</list>
 		</property>
+		<!-- 미리 생성한 빈을 참조하여 설정한다. -->
 		<property name="bmiCalResult">
 			<ref bean="bmiCalResult"/>
 		</property>
