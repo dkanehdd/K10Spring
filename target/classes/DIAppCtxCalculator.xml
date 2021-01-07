@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--  
+	XML설정파일에서 빈(객체)를 생성한다.
+	클래스명은 반드시 package명을 포함한 Fullname을 기술해야한다.
+	형식]
+		<bean id="빈의 참조변수명" class="패키지명.클래스명" />
+	-->
+	
+	<!--  
+	아래 생성된 bean을 자바코드로 표현하면
+	import di.Calculator;
+	Calculator calculation = new Calculator();
+	-->
+	<bean id="calculation" class="di.Calculator"/>
+	
+	<!--  
+	property속성 : 멤버변수를 초기화할때 사용한다. 만약 멤버변수가 
+		객체라면 해당 빈을 생성하기전에 미리 생성되어 있어야하고
+		이때 <ref> 태그를 사용한다.
+	-->
+	<bean id="myCal" class="di.CalculatorDTO">
+		<property name="cal">
+			<ref bean="calculation"/>
+		</property>
+		<property name="firstNum" value="200"></property>
+		<property name="secondNum" value="100"/>
+	</bean>
+
+</beans>

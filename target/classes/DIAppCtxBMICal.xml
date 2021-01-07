@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- BMI지수 빈 설정 : setter를 통해 값설정됨 -->
+	<bean id="bmiCalResult" class="di.BMICalResult">
+		<property name="lowWeight">
+			<value>18.5</value>
+		</property>
+		<property name="normal">
+			<value>23</value>
+		</property>
+		<property name="overWeight">
+			<value>25</value>
+		</property>
+		<property name="obesity">
+			<value>30</value>
+		</property>
+	</bean>
+	
+	<bean id="myInfo" class="di.BMIInfoView">
+		<property name="name" value="홍길동"></property>
+		<property name="height" value="182"></property>
+		<property name="weight" value="77"/>
+		<property name="hobbys">
+			<list>
+				<value>자전거</value>
+				<value>퀵보드</value>
+				<value>레고</value>
+			</list>
+		</property>
+		<property name="bmiCalResult">
+			<ref bean="bmiCalResult"/>
+		</property>
+	</bean>
+</beans>
