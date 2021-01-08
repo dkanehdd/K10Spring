@@ -102,6 +102,33 @@
 			외부파일 참조하기 2(XML설정파일 사용)
 		</a>
 	</li>
+	<li>
+		<a href="environment/main3" target="_blank">
+			외부파일 참조하기 3(어노테이션 사용)
+		</a>
+	</li>
+	
+	
+	<h3>파일업로드</h3>
+	<li>
+		<a href="./fileUpload/uploadPath.do" target="_blank">
+			upload폴더의 물리적 경로 확인하기
+		</a>
+	</li>
+	<li>
+		<a href="./fileUpload/uploadForm.do" target="_blank">
+			파일업로드 폼
+		</a>
+	</li>
+	<li>
+		<a href="./fileUpload/uploadList.do" target="_blank">
+			파일목록보기
+		</a>
+	</li>
+	
+	
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </div>
 </body>
 </html>

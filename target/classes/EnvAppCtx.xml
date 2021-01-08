@@ -2,15 +2,22 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-	http://www.springframework.org/schema/beans/spring-beans.xsd
-	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-4.3.xsd
-	">
-	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!--  
+	Environment객체를 사용하지 않고 XML설정파일에서 바로 외부파일을 
+	가져오기 위해 "context" 네임스페이스를 추가한다. 파일 생성시 추가할 수 있고
+	추가후 <context 태그를 사용할수 있다.
+	-->
 	<context:property-placeholder
 		location="classpath:EnvUser1.properties, classpath:EnvUser2.properties"/>
+		<!-- 프로퍼티 파일이 2개이상일때는 콤마로 구분한다. -->
 		
+	<!--  
+	외부 properties 파일에서 가져올값을 기반으로 빈을 생성한다.
+	파일에서 읽어온 값을 멤버변수의 초기값으로 설정한다.
+	-->
 	<bean id="userConnection" class="env.UserConnection">
 		<property name="mainUserId">
 			<value>${mainUser.id}</value>
@@ -25,6 +32,5 @@
 			<value>${subUser.pw}</value>
 		</property>
 	</bean>
-
 
 </beans>
