@@ -130,6 +130,12 @@
 	<li>
 		<a href="./service/myService.do">바로가기1</a>
 	</li>
+	
+	<h3>트랜잭션(Transaction)</h3>
+	<li>
+		<a href="./transaction/buyTicketMain.do" target="_blank">
+		티켓구매하기1</a>
+	</li>
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </div>

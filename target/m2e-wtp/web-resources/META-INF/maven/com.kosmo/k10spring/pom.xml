@@ -126,7 +126,23 @@
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.2</version>
-		</dependency>         
+		</dependency>   
+		
+		<!-- 
+		트랜젝션은 DB작업이 기본이 되야하므로 JDBC사용을위한
+		의존설정을 한다.
+		 -->
+		<dependency>  
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.1.4.RELEASE</version>
+		</dependency>      
 	</dependencies>
     <build>
         <plugins>
