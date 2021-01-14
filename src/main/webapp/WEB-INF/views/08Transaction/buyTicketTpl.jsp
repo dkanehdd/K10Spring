@@ -4,14 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>buyTicketMain</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="../common/bootstrap4.5.3/css/bootstrap.css" />
 <script src="../common/jquery/jquery-3.5.1.js"></script>
 </head>
 <body>
 <div class="container">
-<h1>트랜잭션 (transaction)</h1>
-<form action="buyTicketAction.do" method="post" 
+
+	<h2>트랜잭션(Transaction)</h2>
+	
+	<h3>트랜잭션 템플릿 사용하여 티켓 구매하기</h3>
+	
+	<h4>제약조건 : check(countNum<5) : 티켓구매는
+	5장까지만 가능함. 6장이상은 오류발생됨 </h4>
+
+	<form action="buyTicketTplAction.do" method="post" 
 		name="ticketFrm">
 	<!-- table>tr*3>td*2 -->
 	<table class="table table-bordered" 
@@ -43,5 +50,6 @@
 	</table>
 	</form>
 </div>
+
 </body>
 </html>

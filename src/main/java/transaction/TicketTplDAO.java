@@ -12,16 +12,15 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 public class TicketTplDAO {
 	
-	JdbcTemplate template;
+	JdbcTemplate template;//Spring-JDBC사용
 	public void setTemplate(JdbcTemplate template) {
 		this.template = template;
 	}
-	
-	TransactionTemplate transactionTemplate;
+	TransactionTemplate transactionTemplate;//트랜잭션 템플릿사용
 	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
 		this.transactionTemplate = transactionTemplate;
 	}
-	
+	//생성자
 	public TicketTplDAO() {
 		System.out.println("TicketTplDAO() 생성자 호출됨");
 	}
@@ -37,7 +36,7 @@ public class TicketTplDAO {
 				@Override
 				protected void doInTransactionWithoutResult(TransactionStatus arg0) {
 
-					//결제금액 처리
+					//티켓 결제금액 처리
 					template.update(new PreparedStatementCreator() {
 						
 						@Override
@@ -54,6 +53,7 @@ public class TicketTplDAO {
 							return psmt;
 						}
 					});
+					//티켓 구매갯수에 대한 처리
 					template.update(new PreparedStatementCreator() {
 						
 						@Override
@@ -70,11 +70,16 @@ public class TicketTplDAO {
 					});
 				}
 			});
+			/*
+			모든 업무에 대해 성공처리 되었을때 true를 반환한다.
+			별도의 commit() 혹은 rollback()이 필요없다.
+			 */
 			System.out.println("카드결제와 티켓구매 모두 정상처리 되었습니다.");
 			System.out.println("=트랜잭션 템플릿 사용함=");
 			return true;
 		}
 		catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("제약조건 위반으로 모두 취소되었습니다.");
 			return false;
 		}
